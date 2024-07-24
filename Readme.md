@@ -6,7 +6,8 @@ https://hub.docker.com/repository/docker/tabisch/uptime-kuma-teams-webhook-shim/
 ## How to use
 Copy the container definition from compose.yaml and Deploy. 
 
-Open Container Website
+Open Container Website.\
+http://your-docker-host:7000 \
 ![image](https://github.com/user-attachments/assets/6a73881d-eb6b-43d1-b3ad-042588f7ad31)
 
 Paste Webhook URL to top box. \

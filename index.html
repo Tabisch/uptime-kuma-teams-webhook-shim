@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>uptime-kuma-teams-webhook-shim</title>
+    <script>
+        function convert() {
+            if(document.getElementById("docker").checked) {
+                document.getElementById("output").value = `http://uptime-kuma-teams-webhook-shim:7000/${btoa(document.getElementById("input").value)}`;
+            }
+            else
+            {
+                document.getElementById("output").value = `${window.location.origin}/${btoa(document.getElementById("input").value)}`;
+            }
+        }
+
+        function copyToClipboard() {
+            navigator.clipboard.writeText(document.getElementById("output").value);
+        }
+    </script>
+</head>
+
+<body>
+    <label>webhook url input</label>
+    <br>
+    <input type="text" id="input">
+    <br>
+    <label>Docker internal?</label>
+    <input type="checkbox" id="docker">
+    <br>
+    <button id="convert" onclick="convert()">convert</button>
+    <br>
+    <br>
+    <label>kuma webhook url</label>
+    <br>
+    <input type="text" id="output">
+    <button id="convert" onclick="copyToClipboard()">copy to clipboard</button>
+
+</body>
+
+</html>

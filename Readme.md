@@ -4,7 +4,7 @@ It' on Docker Hub, if you dont want to build it yourself. \
 https://hub.docker.com/repository/docker/tabisch/uptime-kuma-teams-webhook-shim/general
 
 ## How to use
-Copy the container definition from compose.yaml and Deploy. 
+Copy the container definition from compose.yaml into the same stack as Uptime Kuma and deploy. 
 
 Open Container Website.\
 http://your-docker-host:7000 \

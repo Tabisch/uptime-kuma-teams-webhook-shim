@@ -1,6 +1,6 @@
 # uptime-kuma-teams-webhook-shim
 This is a very simple tool to convert the old Teams connector webhook calls to the new workflow webhook calls \
-It' on Docker Hub, if you dont want to build it yourself. \
+It's on Docker Hub, if you dont want to build it yourself. \
 https://hub.docker.com/repository/docker/tabisch/uptime-kuma-teams-webhook-shim/general
 
 ## How to use
@@ -16,6 +16,6 @@ Click the "convert" button.\
 Copy the converted URL and paste it in to the Webhook-Text box in Uptime Kuma.
 
 ## Notice
-I've thrown this toghter in about two hours and only tested it for myself. \
+I've thrown this togehter in about two hours and only tested it for myself. \
 Logging does not exist. \
 If there are bug, let me know.

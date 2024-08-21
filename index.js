@@ -144,8 +144,8 @@ function buildMessage(status, monitorMessage, monitorName, monitorUrl) {
     return payload;
 }
 
-app.post("*", (req, res) => {
-    const destWebhook = Buffer.from(req.url.substring(1), 'base64').toString('utf-8')
+app.post("*", async (req, res) => {
+    const destWebhook = await Buffer.from(req.url.substring(1), 'base64').toString('utf-8')
 
     const status = req.body.themeColor
     const monitorMessage = req.body.sections[2].text
@@ -168,21 +168,22 @@ app.post("*", (req, res) => {
         monitorUrl = req.body.sections[2].facts[1].value
     }
 
-    const message = JSON.stringify(buildMessage(status, monitorMessage, monitorName, monitorUrl))
+    const message = await JSON.stringify(buildMessage(status, monitorMessage, monitorName, monitorUrl))
 
     try {
-        fetch(destWebhook, {
+        await fetch(destWebhook, {
             method: 'POST',
             body: message,
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
             },
         })
-    } catch(error) {
-        console.log(error)
-    }
 
-    res.send("");
+        res.sendStatus(200)
+    } catch (error) {
+        console.log(error)
+        res.sendStatus(500)
+    }
 });
 
 app.get("*", (req, res) => {

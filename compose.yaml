@@ -4,7 +4,7 @@ services:
   # uptime-kuma definition
 
   uptime-kuma-teams-webhook-shim:
-    image: tabisch/uptime-kuma-teams-webhook-shim:1.0.0
+    image: tabisch/uptime-kuma-teams-webhook-shim:1.0.1
     environment:
       NODE_ENV: production
     ports:

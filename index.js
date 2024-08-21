@@ -150,7 +150,7 @@ app.post("*", (req, res) => {
     const status = req.body.themeColor
     const monitorMessage = req.body.sections[2].text
 
-    console.log(`Processing message - ${monitorMessage}`)
+    console.log(`${(new Date).toISOString()} - Processing message - ${monitorMessage}`)
 
     let monitorName = null
 
@@ -170,13 +170,17 @@ app.post("*", (req, res) => {
 
     const message = JSON.stringify(buildMessage(status, monitorMessage, monitorName, monitorUrl))
 
-    fetch(destWebhook, {
-        method: 'POST',
-        body: message,
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-        },
-    })
+    try {
+        fetch(destWebhook, {
+            method: 'POST',
+            body: message,
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+    } catch(error) {
+        console.log(error)
+    }
 
     res.send("");
 });
